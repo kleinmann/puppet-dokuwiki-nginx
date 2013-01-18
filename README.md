@@ -3,15 +3,13 @@
 Uwe Kleinmann <uwe@kleinmann.org>
 
 This module installs dokuwiki with an accompanying nginx vhost via Puppet.
-
-# Requirements
-
-puppet-nginx module (forked because of an outstanding pull request)
-- http://github.com/kleinmann/puppet-nginx
+It is specifically for Ubuntu 12.10 and hasn't been tested with anything else.
 
 # Usage
 <pre>
   class { 'dokuwiki':
-    domain => 'wiki.example.com',
+    domain     => 'wiki.example.com',
+    wiki_email => 'root@wiki.example.com',
+    wiki_title => 'Example Wiki',
   }
 </pre>
