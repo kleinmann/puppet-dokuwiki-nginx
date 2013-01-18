@@ -1,0 +1,8 @@
+name 'dokuwiki-nginx'
+version '0.0.1'
+source 'git://github.com/kleinmann/puppet-dokuwiki-nginx.git'
+author 'Uwe Kleinmann'
+description 'Dokuwiki with nginx vhost'
+summary 'Dokuwiki with nginx vhost'
+license 'BSD'
+project_page 'https://github.com/kleinmann/puppet-dokuwiki-nginx'
