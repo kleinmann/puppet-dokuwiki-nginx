@@ -1,4 +1,5 @@
 #/usr/bin/env bash
 # Requires fpm (effing package manager)
 
-fpm -s dir -t deb -d javascript-common -d libjs-jquery -d libjs-jquery-cookie -d libjs-jquery-ui -d libphp-simplepie -d php-geshi -d 'php5 >= 5.1.2' --provides dokuwiki -m "John Doe <john@example.com>" -a all --deb-user root --deb-group 0 -n dokuwiki -v 0.0.20120125b-1 dokuwiki/etc dokuwiki/usr dokuwiki/var
+# To be run in a directory with var/www/dokuwiki under it.
+fpm -s dir -t deb --provides dokuwiki -m "John Doe <john@example.com>" -a all --deb-user www-data --deb-group www-data -n dokuwiki -v 0.0.20121013 .
