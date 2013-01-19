@@ -33,8 +33,8 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
   file { 'dokuwiki-local-configuration':
     ensure  => 'present',
     path    => '/var/www/dokuwiki/conf/local.php',
-    owner   => 'root',
-    group   => 'root',
+    owner   => 'www-data',
+    group   => 'www-data',
     mode    => 0644,
     content => template('dokuwiki/local.php.erb'),
     require => Package['dokuwiki'],
@@ -42,8 +42,8 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
   file { 'dokuwiki-users':
     ensure  => 'present',
     path    => '/var/www/dokuwiki/conf/users.auth.php',
-    owner   => 'root',
-    group   => 'root',
+    owner   => 'www-data',
+    group   => 'www-data',
     mode    => 0600,
     content => template('dokuwiki/users.auth.php.erb'),
     require => Package['dokuwiki'],
@@ -51,8 +51,8 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
   file { 'dokuwiki-acl':
     ensure  => 'present',
     path    => '/var/www/dokuwiki/conf/acl.auth.php',
-    owner   => 'root',
-    group   => 'root',
+    owner   => 'www-data',
+    group   => 'www-data',
     mode    => 0600,
     content => template('dokuwiki/acl.auth.php.erb'),
     require => Package['dokuwiki'],
