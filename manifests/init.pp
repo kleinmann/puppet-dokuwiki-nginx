@@ -37,6 +37,7 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
     group   => 'root',
     mode    => 0644,
     content => template('dokuwiki/local.php.erb'),
+    require => Package['dokuwiki'],
   }
   file { 'dokuwiki-users':
     ensure  => 'present',
@@ -45,6 +46,7 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
     group   => 'root',
     mode    => 0600,
     content => template('dokuwiki/users.auth.php.erb'),
+    require => Package['dokuwiki'],
   }
   file { 'dokuwiki-acl':
     ensure  => 'present',
@@ -53,5 +55,6 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
     group   => 'root',
     mode    => 0600,
     content => template('dokuwiki/acl.auth.php.erb'),
+    require => Package['dokuwiki'],
   }
 }
