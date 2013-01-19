@@ -6,6 +6,14 @@ server {
                 index doku.php;
                 try_files $uri $uri/ @dokuwiki;
         }
+
+        location ~ /(data|conf|bin|inc)/ {
+          deny all;
+        }
+
+        location ~ /\.ht {
+          deny  all;
+        }
  
         location @dokuwiki {
                 rewrite ^/_media/(.*) /lib/exe/fetch.php?media=$1 last;
