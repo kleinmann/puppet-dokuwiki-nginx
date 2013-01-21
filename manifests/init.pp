@@ -3,22 +3,17 @@ class dokuwiki( $domain, $wiki_email = 'root@${::fqdn}', $wiki_title = 'Wiki' ) 
     ensure   => present,
     name     => 'dokuwiki',
     provider => 'dpkg',
-    source   => '/opt/debs/dokuwiki_0.0.20121013_all.deb',
+    source   => '/tmp/dokuwiki_0.0.20121013_all.deb',
     require  => File['dokuwiki-package'],
-  }
-
-  file { '/opt/debs':
-    ensure => 'directory',
   }
 
   file { 'dokuwiki-package':
     ensure  => 'present',
-    path    => '/opt/debs/dokuwiki_0.0.20121013_all.deb',
+    path    => '/tmp/dokuwiki_0.0.20121013_all.deb',
     owner   => 'root',
     group   => 'root',
     mode    => 0644,
     source  => 'puppet:///modules/dokuwiki/dokuwiki_0.0.20121013_all.deb',
-    require => File['/opt/debs'],
   }
 
   file { 'dokuwiki-nginx-vhost':
